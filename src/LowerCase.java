@@ -1,24 +1,21 @@
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 class LowerCase {
     public String solution(String s) {
         String answer = "";
-        s = s.toLowerCase();
         String[] str = s.split(" ");
-        Pattern pattern = Pattern.compile("^[a-z]*$");
+        //Pattern pattern = Pattern.compile("^[a-z]*$");
         for(int i = 0; i < str.length; i++){
-            Matcher matcher = pattern.matcher(String.valueOf(str[i].charAt(0)));
-            if(matcher.matches()){
-                String hi = String.valueOf(str[i].charAt(0));
-                hi = hi.toUpperCase();
-
-                answer = answer + str[i].replaceFirst(str[i], hi + str[i].substring(1)) + " ";
+            if(str[i].equals("")){
+                answer += " ";
+                continue;
             }
-            else {
-                answer = answer + str[i] + " ";
-            }
+            String firstChar = String.valueOf(str[i].charAt(0));
+            firstChar = firstChar.toUpperCase();
+            String lastStr = str[i].substring(1, str[i].length());
+            lastStr = lastStr.toLowerCase();
+            answer += firstChar + lastStr + " ";
         }
-        answer = answer.trim();
+        if(s.charAt(s.length() -1 ) != ' ')
+            answer = answer.trim();
 
         return answer;
     }
