@@ -12,7 +12,6 @@ class ZipStr {
 
     /**
      * 문자열 압축
-     *
      * @param str 입력받은 문자열
      * @param i i값
      * @return 압축된 문자열
